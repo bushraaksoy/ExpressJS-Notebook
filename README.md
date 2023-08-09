@@ -33,3 +33,4 @@ app.get('/', (req, res) => {
 })
 ```
 
+In the code above <h3>app.use()</> is for setting up the middleware. (express.static() is basically a built in middleware.
