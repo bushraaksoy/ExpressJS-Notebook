@@ -29,3 +29,12 @@ app.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, './index.html'));
 })
 ```
+In the code above app.use() is for setting up the middleware. express.static() is basically a built in middleware.
+
+now we actually won't even need these lines of code:
+```js
+app.get('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './index.html'));
+})
+```
+since express can just find everything in the static public page.
