@@ -83,3 +83,24 @@ app.get('/api/products/:productId', (req, res) => {
 ```
 Here we are specifying a parameter by adding the : so the word after the colon is consdered to be the parameter.
 And were able to access the parameters from the requests using req.params.
+
+## adding query
+
+we can add extra functions by adding queries in our url such as: /api/products?filter=a&limit=2
+in the example above we would say that we are looking for the queries filter and limit, for the purpose of filtering the products.
+
+```js
+app.get('api/producs', (req, res) => {
+  cosnt { filter, limit} = req.query
+  let filteredProducts = [...products]
+  if (filter) {
+    filteredProducts = filteredProducts.filter(product => product.name[0] === filter)
+  }
+  if (limit) {
+    filteredProducts = filteredProducts.splice(0, Number(limit))
+  }
+  res.json(filteredProducts)
+})
+```
+So if we add a query like ?filter=a&limit=2 in the end of our url, the /api/products url will filter our products based on the specified query.
+if nothing is specified then all the products will be displayed.
