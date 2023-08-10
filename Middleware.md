@@ -23,4 +23,26 @@ const logger = (req, res, next) => {
   console.log(method, path)
   next()
 }
+
+module.exports = logger
 ```
+
+We can create this function in a different logger.js folder and then import it to app.js and use like this:
+
+```js
+const logger = require('logger')
+// then we pass the middleware as a parameter to the method.
+
+app.get('api/products', logger, (req, res) => {
+ res.json(products)
+})
+```
+So now everytime we call the above methos to the specified url, the logger will be called.
+
+if we want to implement this middleware function to all the other methods too, we can do this:
+
+```js
+app.use(logger)
+```
+using the app.use() function will apply this middleware to all the next methods specified, wihtout having to individually add it to each one.
+and if you want to specify multiple middlewares in the app.use(), you can mention all of them in one array.
