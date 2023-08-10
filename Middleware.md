@@ -37,7 +37,7 @@ app.get('api/products', logger, (req, res) => {
  res.json(products)
 })
 ```
-So now everytime we call the above methos to the specified url, the logger will be called.
+So now everytime we call the above methods to the specified url, the logger will be called.
 
 if we want to implement this middleware function to all the other methods too, we can do this:
 
