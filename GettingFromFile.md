@@ -1,5 +1,10 @@
 # Getting our page from a file
 
+```js
+cosnt express = require('express')
+const app = express()
+```
+
 To get a certain html file to get sent, you can use the path module and also sendFile instead of send.
 
 first we import path
@@ -38,3 +43,43 @@ app.get('/', (req, res) => {
 })
 ```
 since express can just find everything in the static public page.
+
+## Getting json data from file and displaying it on our page
+
+lets say we have a data.js file with an array of objects of products.
+```js
+const products = [
+  {
+    "id": 1,
+    "name": "shirt"
+  },
+  {
+    "id": 2,
+    "name": pants
+  }
+]
+```
+
+now we can get the data from the data.js file and display it the way we want based on the url.
+
+```js
+const data = require('./data')
+
+app.get('/api/products', (req, res) => {
+  res.json(products)
+})
+```
+
+we can also get a specific product with it's id like this:
+
+```js
+app.get('/api/products/:productId', (req, res) => {
+  const {productId} = req.params
+  const singleProduct = products.find(product => {
+    product.id === Number(productId)
+  })
+  res.json(singleProduct)
+})
+```
+Here we are specifying a parameter by adding the :, so the word after the colon is consdered to be the parameter.
+And were able to access the parameters from the requests using req.params.
