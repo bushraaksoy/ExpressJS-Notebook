@@ -41,8 +41,10 @@ So now everytime we call the above methos to the specified url, the logger will 
 
 if we want to implement this middleware function to all the other methods too, we can do this:
 
+## app.use()
 ```js
 app.use(logger)
 ```
+app.use() essentially mounds our app with the middleware specified
 using the app.use() function will apply this middleware to all the next methods specified, wihtout having to individually add it to each one.
 and if you want to specify multiple middlewares in the app.use(), you can mention all of them in one array.
