@@ -81,5 +81,5 @@ app.get('/api/products/:productId', (req, res) => {
   res.json(singleProduct)
 })
 ```
-Here we are specifying a parameter by adding the :, so the word after the colon is consdered to be the parameter.
+Here we are specifying a parameter by adding the : so the word after the colon is consdered to be the parameter.
 And were able to access the parameters from the requests using req.params.
