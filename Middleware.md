@@ -18,7 +18,7 @@ for example if we want a middleware for console.logging the req method and path 
 ```js
 const logger = (req, res, next) => {
   const method = req.method;
-  const path = rew.path;
+  const path = req.path;
 
   console.log(method, path)
   next()
